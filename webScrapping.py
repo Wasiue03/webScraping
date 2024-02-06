@@ -82,7 +82,6 @@ def standardize_data_formats(df):
 def perform_data_transformation(df):
     
     df['Revenue'] = np.log1p(df['Revenue']) 
-    #
     return df
 
 df_cleaned = handle_missing_values(df)
