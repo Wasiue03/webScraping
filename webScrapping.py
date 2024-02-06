@@ -60,3 +60,35 @@ plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 plt.tight_layout()
 plt.show()
+
+
+import pandas as pd
+import numpy as np
+from scipy.stats import zscore
+
+
+def handle_missing_values(df):
+    return df.dropna()
+
+def handle_duplicates(df):
+    return df.drop_duplicates()
+
+def standardize_data_formats(df):
+
+    df['Revenue growth'] = df['Revenue growth'].str.rstrip('%').astype(float)
+    return df
+
+
+def perform_data_transformation(df):
+    
+    df['Revenue'] = np.log1p(df['Revenue']) 
+    #
+    return df
+
+df_cleaned = handle_missing_values(df)
+df_cleaned = handle_duplicates(df_cleaned)
+df_cleaned = standardize_data_formats(df_cleaned)
+df_cleaned = perform_data_transformation(df_cleaned)
+
+# Display the cleaned DataFrame
+df_cleaned
