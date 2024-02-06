@@ -81,7 +81,7 @@ def standardize_data_formats(df):
 
 def perform_data_transformation(df):
     
-    df['Revenue'] = np.log1p(df['Revenue']) 
+    df['Revenue growth'] = np.log1p(df['Revenue growth']) 
     return df
 
 df_cleaned = handle_missing_values(df)
@@ -89,5 +89,5 @@ df_cleaned = handle_duplicates(df_cleaned)
 df_cleaned = standardize_data_formats(df_cleaned)
 df_cleaned = perform_data_transformation(df_cleaned)
 
-# Display the cleaned DataFrame
-df_cleaned
+
+print(df_cleaned)
